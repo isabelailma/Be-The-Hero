@@ -2,6 +2,8 @@
 const express = require('express');
 /* Importando módulo de segurança CORS*/
 const cors = require('cors')
+/* Importando celebrate */
+const { errors } = require('celebrate');
 /* Importando variável routes de outro arquivo */
 const routes = require('./routes')
 
@@ -13,7 +15,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+app.use(errors());
 
-
-/* Aplicação vai ouvir a porta 3333 (localhost:3333) */
-app.listen(3333);
+module.exports = app;

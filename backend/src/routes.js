@@ -1,5 +1,8 @@
 /* Importando o módulo express para a variável express */
 const express = require('express');
+
+const { celebrate, Segments, Joi } = require('celebrate');
+
 const OngController = require('./controllers/OngController');
 const IncidentController = require('./controllers/IncidentController');
 const ProfileController = require('./controllers/ProfileController');
@@ -42,17 +45,39 @@ routes.post('/sessions', SessionController.create);
 /* Listando todas as ONG's */
 routes.get('/ongs', OngController.index);
 /* Cadastrando uma nova ONG */
- routes.post('/ongs', OngController.create);
+ routes.post('/ongs', celebrate({
+   [Segments.BODY]: Joi.object().keys({
+     name: Joi.string().required(),
+     email: Joi.string().required().email(),
+     whatsapp: Joi.string().required().min(10).max(11),
+     city: Joi.string().required(),
+     uf: Joi.string().required().length(2),
+   })
+ }), OngController.create);
 
 /* Listando todos os casos de uma ONG específica */
-routes.get('/profile', ProfileController.index);
+routes.get('/profile', celebrate({
+  [Segments.HEADERS]: Joi.object({
+    authorization: Joi.string().required(),
+  }).unknown(),
+}), ProfileController.index);
 
 /* Listando todos os casos */
-routes.get('/incidents', IncidentController.index);
+routes.get('/incidents', celebrate({
+  [Segments.QUERY]: Joi.object().keys({
+    page: Joi.number(),
+  })
+}), IncidentController.index);
+
 /* Cadastrando um novo caso */
 routes.post('/incidents', IncidentController.create);
+
 /* Deletando um caso */
-routes.delete('/incidents/:id', IncidentController.delete);
+routes.delete('/incidents/:id', celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    id: Joi.number().required(),
+  })
+}), IncidentController.delete);
 
 /* Exportar variável routes */
 module.exports = routes;
