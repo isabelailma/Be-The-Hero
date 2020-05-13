@@ -1,0 +1,19 @@
+{
+  "name": "api-backend",
+  "version": "1.0.0",
+  "description": "API",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && npm install && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabelailma/Be-The-Hero.git"
+  },
+  "author": "Isabela Ilma Gonçalves",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/isabelailma/Be-The-Hero/issues"
+  },
+  "homepage": "https://github.com/isabelailma/Be-The-Hero#readme"
+}
