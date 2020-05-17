@@ -1,11 +1,7 @@
 # Be The Hero
-<div class="container">
-    <div class="web">
-        <img height="330" src="BeTheHeroWeb.gif">
-    </div>
-    <div class="mobile">
-        <img height="330" src="BeTheHeroMobile.gif">
-    </div>
+<div class="preview">
+    <img height="330" src="BeTheHeroWeb.gif">
+    <img height="330" src="BeTheHeroMobile.gif">
 </div>
 
 <p align="center">
