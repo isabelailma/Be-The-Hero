@@ -1,10 +1,15 @@
 {
-  "name": "api-backend",
+  "name": "bethehero",
   "version": "1.0.0",
-  "description": "API",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm install && npm start"
+    "start": "cd backend && npm install && npm start",
+    "install:npm": "echo Be-The-Hero && npm install && npm run i:npm\n",
+    "i:npm": "npm run backend && npm run frontend && npm run mobile && cd ..",
+    "backend": "cd backend && npm install\n",
+    "frontend": "cd frontend && npm install\n",
+    "mobile": "cd mobile && npm install\n"
   },
   "repository": {
     "type": "git",
