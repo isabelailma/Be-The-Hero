@@ -28,7 +28,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: './src/database/migrations'
+      directory: './src/database/migrations'
     }
   },
 
@@ -36,7 +36,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: './src/database/migrations'
+      directory: './src/database/migrations'
     }
   }
 };
