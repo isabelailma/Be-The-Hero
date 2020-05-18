@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm install && npm run migrate && npm start",
+    "start": "cd backend && npm install && npx knex migrate:rollback && npx knex migrate:latest && npm start",
     "install:npm": "echo Be-The-Hero && npm install && npm run i:npm\n",
     "i:npm": "npm run backend && npm run frontend && npm run mobile && cd ..",
     "backend": "cd backend && npm install\n",
     "frontend": "cd frontend && npm install\n",
-    "mobile": "cd mobile && npm install\n",
-    "migrate": "npx knex migrate:rollback && npx knex migrate:latest"
+    "mobile": "cd mobile && npm install\n"
   },
   "repository": {
     "type": "git",
