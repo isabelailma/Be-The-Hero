@@ -16,11 +16,11 @@ describe('ONG', () => {
         const response = await request(app)
             .post('/ongs')
             .send({
-                name: "APAD2",
-                email: "contato@contato.com",
-                whatsapp: "47000000000",
-                city: "Rio do Sul",
-                uf: "SC"
+                name: "APATA",
+                email: "contato@apata.org.br",
+                whatsapp: "12900000000",
+                city: "Taubaté",
+                uf: "SP"
             });
         
             expect(response.body).toHaveProperty('id');

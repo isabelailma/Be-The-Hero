@@ -1,10 +1,10 @@
+require('dotenv/config');
+
 const knex = require('knex');
-const configuration = require('../../knexfile');
+const environment = process.env.NODE_ENV;
+const config = require('../../knexfile')[environment];
 
-/* Fazendo a conexão com o banco de teste */
-const config = process.env.NODE_ENV || 'test' ? configuration.test : configuration.development;
-
-/* Fazendo a conexão com o banco de dados de desenvolvimento */
+/* Fazendo a conexão com o banco de dados */
 const connection = knex(config);
 
 /* Exportar variável connection */
